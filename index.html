@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vang - Indie Game Developer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Reset & Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            line-height: 1.7;
+            color: #2d3748;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4edf5 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 40px auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+            overflow: hidden;
+            border: 1px solid #e2e8f0;
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            color: white;
+            padding: 50px 40px;
+            text-align: center;
+            position: relative;
+        }
+
+        .header::after {
+            content: '';
+            position: absolute;
+            bottom: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 40px;
+            height: 40px;
+            background: white;
+            transform: rotate(45deg);
+        }
+
+        .avatar {
+            width: 100px;
+            height: 100px;
+            margin: 0 auto 20px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 40px;
+            border: 3px solid white;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 10px;
+            letter-spacing: -0.5px;
+        }
+
+        .tagline {
+            font-size: 1.2rem;
+            opacity: 0.95;
+            font-weight: 300;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        /* Content */
+        .content {
+            padding: 60px 40px;
+        }
+
+        .section-title {
+            color: #2b6cb0;
+            font-size: 1.8rem;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 4px;
+            background: #00f2fe;
+            border-radius: 2px;
+        }
+
+        .about-text {
+            font-size: 1.1rem;
+            margin-bottom: 25px;
+        }
+
+        .highlight {
+            background: linear-gradient(120deg, #e0f7fa 0%, #bbdefb 100%);
+            padding: 25px;
+            border-radius: 12px;
+            border-left: 5px solid #4facfe;
+            margin: 30px 0;
+            font-style: italic;
+        }
+
+        .game-card {
+            background: #f8fafc;
+            border-radius: 12px;
+            padding: 25px;
+            margin-top: 30px;
+            border: 1px solid #e2e8f0;
+            transition: transform 0.3s ease;
+        }
+
+        .game-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+        }
+
+        .game-title {
+            color: #2d3748;
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            font-weight: 700;
+        }
+
+        .game-title i {
+            margin-right: 10px;
+            color: #4facfe;
+        }
+
+        .game-badge {
+            display: inline-block;
+            background: linear-gradient(to right, #4facfe, #00f2fe);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin-top: 15px;
+            font-weight: 600;
+        }
+
+        /* Links Section */
+        .links-section {
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 1px solid #e2e8f0;
+        }
+
+        .links-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .link-card {
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            text-decoration: none;
+            color: #2d3748;
+            transition: all 0.3s ease;
+        }
+
+        .link-card:hover {
+            background: #f7fafc;
+            border-color: #4facfe;
+            transform: translateY(-2px);
+        }
+
+        .link-card i {
+            font-size: 24px;
+            color: #4facfe;
+            margin-bottom: 10px;
+        }
+
+        .link-title {
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .link-desc {
+            font-size: 0.9rem;
+            color: #718096;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 30px;
+            background: #f8fafc;
+            color: #718096;
+            border-top: 1px solid #e2e8f0;
+        }
+
+        .footer-links {
+            margin-top: 15px;
+        }
+
+        .footer-links a {
+            color: #4facfe;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        .footer-links a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container {
+                margin: 20px auto;
+            }
+            
+            .header, .content {
+                padding: 30px 20px;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .tagline {
+                font-size: 1rem;
+            }
+            
+            .section-title {
+                font-size: 1.5rem;
+            }
+            
+            .about-text {
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .links-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <div class="avatar">
+                <i class="fas fa-gamepad"></i>
+            </div>
+            <h1>Vang</h1>
+            <p class="tagline">Indie Developer • Storyteller • Creator of Relaxing Games</p>
+        </div>
+
+        <!-- Content -->
+        <div class="content">
+            <!-- About Section -->
+            <h2 class="section-title">ABOUT ME</h2>
+            
+            <p class="about-text">
+                Hey! I'm Vang, hailing from An Giang, Vietnam. My goal is to craft games that help players unwind and refresh their minds, much like a gentle, cool stream.
+            </p>
+            
+            <div class="highlight">
+                Let's be real: commercial game development is tough, especially for solo indie devs. My journey has been even steeper - learning everything from zero. No formal education in the field, no mentors to guide me, working with a tight budget and basic gear... But you know what? Those limitations don't hold me back. They actually add flavor to my creative process!
+            </div>
+            
+            <p class="about-text">
+                Seven months after first diving into Unity and game dev, I launched my debut title <strong>"Endless Bounce: Sweet Breaker"</strong> on Google Play. This is just the beginning - more games are on the way. I have stories to tell and messages to share. Games are my perfect medium for this.
+            </p>
+            
+            <p class="about-text" style="font-size: 1.2rem; font-weight: 600; color: #2b6cb0;">
+                Your support would mean the world to me!<br>
+                Cheers!
+            </p>
+
+            <!-- Current Game -->
+            <div class="game-card">
+                <div class="game-title">
+                    <i class="fas fa-mobile-alt"></i> Current Project
+                </div>
+                <p><strong>Endless Bounce: Sweet Breaker</strong> - An addictive endless bouncing game where you break through sweet obstacles! Challenge your reflexes and beat your high score.</p>
+                <div class="game-badge">Available on Google Play</div>
+            </div>
+
+            <!-- Important Links -->
+            <div class="links-section">
+                <h3 style="color: #2d3748; margin-bottom: 20px; font-size: 1.3rem;">
+                    <i class="fas fa-link"></i> Important Links
+                </h3>
+                <div class="links-grid">
+                    <a href="/app-ads.txt" class="link-card" target="_blank">
+                        <i class="fas fa-file-alt"></i>
+                        <div class="link-title">App-ads.txt</div>
+                        <div class="link-desc">Required for AdMob verification</div>
+                    </a>
+                    
+                    <a href="/privacy-policy.html" class="link-card">
+                        <i class="fas fa-shield-alt"></i>
+                        <div class="link-title">Privacy Policy</div>
+                        <div class="link-desc">Game data usage information</div>
+                    </a>
+                    
+                    <a href="mailto:vang.ag.official@gmail.com" class="link-card">
+                        <i class="fas fa-envelope"></i>
+                        <div class="link-title">Contact Me</div>
+                        <div class="link-desc">Feedback & collaboration</div>
+                    </a>
+                    
+                    <a href="https://play.google.com/store/apps/dev?id=YOUR_DEV_ID" class="link-card" target="_blank">
+                        <i class="fab fa-google-play"></i>
+                        <div class="link-title">Play Store</div>
+                        <div class="link-desc">All my games</div>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <p>© 2024 Vang Game Studio. All rights reserved.</p>
+            <p style="margin-top: 10px; font-size: 0.95rem;">
+                <i class="fas fa-map-marker-alt"></i> An Giang, Vietnam • 
+                <i class="fas fa-heart" style="color: #e53e3e;"></i> Made with passion
+            </p>
+            <div class="footer-links">
+                <a href="/app-ads.txt">app-ads.txt</a> • 
+                <a href="/privacy-policy.html">Privacy Policy</a> • 
+                <a href="mailto:vang.ag.official@gmail.com">Contact</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Simple animation on scroll
+        document.addEventListener('DOMContentLoaded', function() {
+            const cards = document.querySelectorAll('.link-card, .game-card');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            cards.forEach(card => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                observer.observe(card);
+            });
+            
+            // Set current year in footer
+            document.querySelector('footer p:first-child').innerHTML = 
+                `© ${new Date().getFullYear()} Vang Game Studio. All rights reserved.`;
+        });
+    </script>
+</body>
+</html>
